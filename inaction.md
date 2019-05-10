@@ -20,3 +20,8 @@
     - Run with Gradle wrapper
     - Postman
     - Runtime exception
+   
+4. Error handling
+    - HttpStatusException
+    - ErrorMessage
+    - ErrorHandler (RestControllerAdvice, ExceptionHandler)
