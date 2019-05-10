@@ -28,4 +28,8 @@
    
 5. Add Dev Tools
 
-
+6. Add more users
+    - Collection on UserService
+    - for
+    - Run test
+    - Java Stream API (filter, findFirst, Optional)
