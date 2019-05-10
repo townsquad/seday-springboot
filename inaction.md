@@ -15,3 +15,8 @@
 
 3. Endpoint to find user by email
     - UserController
+    - Query param
+    - Run main
+    - Run with Gradle wrapper
+    - Postman
+    - Runtime exception
