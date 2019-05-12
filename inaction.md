@@ -11,6 +11,12 @@
 2. Find user by email
     - User
     - UserService
+        - Tony Stark
+        - Steve Rogers
+        - Bruce Banner
+        - Thor Odinson
+        - Clinton Barton
+        - Natasha Romanoff
     - UserServiceTest
 
 3. Endpoint to find user by email
@@ -38,3 +44,13 @@
     - Add functionality to service
     - Test new functionality
     
+8. List user emails by birthday month
+    - Add birth date to users base
+        - Stark: 1970-05-29
+        - Rogers: 1018-07-04
+        - Banner: 1969-12-18
+        - Odinson: 1000-01-01
+        - Barton: 1971-01-07
+        - Romanoff: 1984-11-22
+    - Add functionality to service
+    - Test new functionality
