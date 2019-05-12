@@ -54,3 +54,8 @@
         - Romanoff: 1984-11-22
     - Add functionality to service
     - Test new functionality
+
+9. Extract repository
+    - Return User object only
+    - Return Stream instead of Collection
+
