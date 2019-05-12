@@ -59,3 +59,10 @@
     - Return User object only
     - Return Stream instead of Collection
 
+10. Apply Spring DI
+    - Turn service into a component
+    - Inject service into controller
+    - Turn repository into a component
+    - Inject repository into service
+    
+    

@@ -7,7 +7,9 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.Optional;
 import java.util.stream.Stream;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public class UserRepository {
 
     private final Collection<User> users = Arrays.asList(
