@@ -64,5 +64,6 @@
     - Inject service into controller
     - Turn repository into a component
     - Inject repository into service
+    - Change test to use Mockito runner
     
     
