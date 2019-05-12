@@ -33,3 +33,8 @@
     - for
     - Run test
     - Java Stream API (filter, findFirst, Optional)
+
+7. List users by last name
+    - Add functionality to service
+    - Test new functionality
+    

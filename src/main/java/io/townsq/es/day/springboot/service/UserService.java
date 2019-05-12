@@ -4,6 +4,7 @@ import io.townsq.es.day.springboot.domain.User;
 import io.townsq.es.day.springboot.exception.HttpStatusException;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.stream.Collectors;
 import org.springframework.http.HttpStatus;
 
 public class UserService {
@@ -22,6 +23,13 @@ public class UserService {
                 .filter(user -> user.getEmail().equals(email))
                 .findFirst()
                 .orElseThrow(() -> new HttpStatusException("User not found", HttpStatus.NOT_FOUND));
+    }
+
+    public Collection<User> listUserByLastName(String lastName) {
+        return users
+                .stream()
+                .filter(user -> user.getLastName().equals(lastName))
+                .collect(Collectors.toList());
     }
 
 }
