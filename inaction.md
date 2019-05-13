@@ -11,6 +11,7 @@
 2. Find user by email
     - User
         - Non-final attributes
+        - Lombok
     - UserService
         - Tony Stark
         - Steve Rogers

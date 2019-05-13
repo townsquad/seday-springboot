@@ -1,7 +1,9 @@
 package io.townsq.es.day.springboot.exception;
 
+import lombok.Getter;
 import org.springframework.http.HttpStatus;
 
+@Getter
 public class HttpStatusException extends RuntimeException {
     private final HttpStatus status;
 
@@ -9,9 +11,4 @@ public class HttpStatusException extends RuntimeException {
         super(message);
         this.status = status;
     }
-
-    public HttpStatus getStatus() {
-        return status;
-    }
-
 }
