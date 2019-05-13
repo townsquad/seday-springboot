@@ -82,3 +82,7 @@
     - POSTMAN
     - User id generate type as IDENTITY
     
+12. Integration Tests
+    - Add REST-assured to build.gradle
+    - 
+    
