@@ -10,6 +10,7 @@
     
 2. Find user by email
     - User
+        - Non-final attributes
     - UserService
         - Tony Stark
         - Steve Rogers
@@ -66,4 +67,12 @@
     - Inject repository into service
     - Change test to use Mockito runner
     
+11. Use Spring Data JPA
+    - Add schema definition on data.sql
+    - Annotated User entity
+    - Transform repository to interface
+        - Remove streams to simplify
+        - Query by month not supported by query language
+        - Fix test
+    - Enable Spring repositories
     

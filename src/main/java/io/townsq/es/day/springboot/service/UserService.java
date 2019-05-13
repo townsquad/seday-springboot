@@ -22,22 +22,26 @@ public class UserService {
 
     public User getUserByEmail(String email) {
         return repository
-                .getByEmail(email)
+                .findByEmail(email)
                 .orElseThrow(() -> new HttpStatusException("User not found", HttpStatus.NOT_FOUND));
     }
 
     public Collection<User> listUserByLastName(String lastName) {
-        return repository
-                .listUserByLastName(lastName)
-                .collect(Collectors.toList());
+        return repository.findAllByLastName(lastName);
     }
 
     public Collection<String> listEmailByUserBirthdayMonth(Month month) {
         return repository
-                .listEmailByUserBirthdayMonth(month)
+                .findAll()
+                .stream()
+                .filter(user -> user.getBirthDate().getMonth() == month)
                 .map(user -> user.getEmail())
                 .collect(Collectors.toList());
 
+    }
+
+    public Collection<User> listAllUsers() {
+        return repository.findAll();
     }
 
 }

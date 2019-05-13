@@ -6,10 +6,12 @@ import static org.mockito.Mockito.mock;
 
 import io.townsq.es.day.springboot.domain.User;
 import io.townsq.es.day.springboot.repository.UserRepository;
+import java.time.LocalDate;
 import java.time.Month;
+import java.util.Arrays;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.Optional;
-import java.util.stream.Stream;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -30,7 +32,7 @@ public class UserServiceTest {
         User tony = mock(User.class);
 
         given(tony.getEmail()).willReturn(email);
-        given(repository.getByEmail(email)).willReturn(Optional.of(tony));
+        given(repository.findByEmail(email)).willReturn(Optional.of(tony));
 
         User stark = service.getUserByEmail(email);
 
@@ -42,7 +44,7 @@ public class UserServiceTest {
         User steve = mock(User.class);
 
         given(steve.getLastName()).willReturn("Rogers");
-        given(repository.listUserByLastName("Rogers")).willReturn(Stream.of(steve));
+        given(repository.findAllByLastName("Rogers")).willReturn(Collections.singletonList(steve));
 
         Collection<User> users = service.listUserByLastName("Rogers");
 
@@ -52,9 +54,13 @@ public class UserServiceTest {
     @Test
     public void listUserEmailsByBirthdayMonth() {
         User natasha = mock(User.class);
+        User bruce = mock(User.class);
 
         given(natasha.getEmail()).willReturn("natasha.romanoff@townsq.io");
-        given(repository.listEmailByUserBirthdayMonth(Month.NOVEMBER)).willReturn(Stream.of(natasha));
+        given(natasha.getBirthDate()).willReturn(LocalDate.parse("1984-11-22"));
+        given(bruce.getBirthDate()).willReturn(LocalDate.parse("1969-12-18"));
+
+        given(repository.findAll()).willReturn(Arrays.asList(natasha, bruce));
 
         Collection<String> emails = service.listEmailByUserBirthdayMonth(Month.NOVEMBER);
 
