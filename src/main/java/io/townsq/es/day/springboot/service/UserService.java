@@ -31,13 +31,37 @@ public class UserService {
                 .findAll()
                 .stream()
                 .filter(user -> user.getBirthDate().getMonth() == month)
-                .map(user -> user.getEmail())
+                .map(User::getEmail)
                 .collect(Collectors.toList());
 
     }
 
     public Collection<User> listAllUsers() {
         return repository.findAll();
+    }
+
+    public User getUserById(Integer userId) {
+        return repository.findById(userId)
+                .orElseThrow(() -> new HttpStatusException("User not found", HttpStatus.NOT_FOUND));
+    }
+
+    public User createUser(User user) {
+        return repository.save(user);
+    }
+
+    public User updateUser(Integer userId, User user) {
+        String email = repository.findById(userId)
+                .map(User::getEmail)
+                .orElseThrow(() -> new HttpStatusException("User not found", HttpStatus.NOT_FOUND));
+
+        user.setId(userId);
+        user.setEmail(email);
+
+        return repository.save(user);
+    }
+
+    public void deleteUserById(Integer userId) {
+        repository.deleteById(userId);
     }
 
 }
